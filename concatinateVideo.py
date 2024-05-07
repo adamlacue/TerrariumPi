@@ -34,8 +34,8 @@ def concatenate_videos(video1_path, video2_path, output_path):
     out.release()
 
 if __name__ == "__main__":
-    video1_path = "test1.avi"  # Replace with the path to your first video
-    video2_path = "test2.avi"  # Replace with the path to your second video
-    output_path = "concatTest.avi"  # Replace with the desired output path
+    video1_path = "test2.avi"  # Replace with the path to your first video
+    video2_path = "test3.avi"  # Replace with the path to your second video
+    output_path = "concatTestToday.avi"  # Replace with the desired output path
 
     concatenate_videos(video1_path, video2_path, output_path)

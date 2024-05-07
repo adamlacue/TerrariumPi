@@ -2,9 +2,13 @@ import cv2
 import datetime
 import time
 
-def capture_video(output_filename, duration_seconds=60):
+def capture_video(duration_seconds=60):
     # Open the default camera (usually the built-in webcam)
     cap = cv2.VideoCapture(0)
+
+    # Get current date for the output filename
+    current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+    output_filename = f"dailyCapture_{current_date}.avi"
 
     # Set the video codec and create a VideoWriter object
     fourcc = cv2.VideoWriter_fourcc(*'XVID')
@@ -29,11 +33,9 @@ def capture_video(output_filename, duration_seconds=60):
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    # Set the path where you want to save the video
-    output_filename = "test2.avi"
 
     # Set the scheduled time for recording (in 24-hour format)
-    scheduled_time = datetime.time(13, 17)
+    scheduled_time = datetime.time(13, 37)
 
     while True:
         # Get the current time
@@ -42,7 +44,7 @@ if __name__ == "__main__":
         # Check if it's time to start recording
         if current_time.hour == scheduled_time.hour and current_time.minute == scheduled_time.minute:
             print(f"Recording video at {current_time}")
-            capture_video(output_filename)
+            capture_video()
             print("Video recording completed.")
             break
         else:
